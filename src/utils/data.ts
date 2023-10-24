@@ -139,7 +139,7 @@ export const backend = [
 
 export const portfolio = [
   {
-    id: 1,
+    id: 3,
     image:
       "https://res.cloudinary.com/dbxvk3apv/image/upload/v1697905097/Languages/Screenshot_22_jphp2p.webp",
     name: "Nairaland Clone",
@@ -157,7 +157,7 @@ export const portfolio = [
     demoLink: "https://myshomeecommerce.netlify.app/",
   },
   {
-    id: 3,
+    id: 1,
     image:
       "https://res.cloudinary.com/dbxvk3apv/image/upload/v1686920355/Languages/Movie_Image_kubq27.webp",
     name: "MOVIE BOX",
@@ -165,7 +165,7 @@ export const portfolio = [
     demoLink: "https://myplaymovie.netlify.app/",
   },
   {
-    id: 4,
+    id: 0,
     image:
       "https://res.cloudinary.com/dbxvk3apv/image/upload/v1697905900/Languages/Screenshot_24_jwch64.webp",
     name: "PORTFOLIO",

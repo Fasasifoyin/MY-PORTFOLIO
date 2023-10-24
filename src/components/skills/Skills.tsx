@@ -15,7 +15,7 @@ const Skills = () => {
   const [showBack, setShowBack] = useState(false);
 
   return (
-    <Box id="skills" mb={"100px"}>
+    <Box id="skills" mb={"100px"} className="cc-container page-alignment">
       <Headers title="Skills" subTitle="Expert Proficiency" />
       <Flex
         direction={{ base: "column", md: "row" }}

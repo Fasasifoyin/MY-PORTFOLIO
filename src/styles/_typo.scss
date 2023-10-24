@@ -32,9 +32,13 @@ h1 {
   font-weight: 600;
 }
 
-h2{
+h2 {
   @include fluid-type($min_width, $max_width, 24px, 36px);
   font-weight: 600;
+}
+
+.large-text {
+  @include fluid-type($min_width, $max_width, 20px, 24px);
 }
 
 .medium-text {

@@ -4,7 +4,7 @@ import { AiOutlineDownload } from "react-icons/ai";
 
 const About = () => {
   return (
-    <Box id="about" mb={"100px"}>
+    <Box id="about" mb={"100px"} className="cc-container page-alignment">
       <Headers title="About me" subTitle="Get to know me" />
       <Flex
         direction={{ base: "column", md: "row" }}

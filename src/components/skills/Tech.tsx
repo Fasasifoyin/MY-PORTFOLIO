@@ -40,7 +40,7 @@ const Tech = ({ data, show }: TechProps) => {
                 <Image
                   w={"100%"}
                   h={"100%"}
-                  alt={each.tech}
+                  alt={`${each.tech} logo`}
                   objectFit={"cover"}
                   src={each.image}
                 />

@@ -1,12 +1,15 @@
+import { useEffect, useState } from "react";
 import { Box, Flex, Icon, Image } from "@chakra-ui/react";
 import Headers from "../Headers";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { portfolio } from "../../utils/data";
-import useElementWidth from "../../hooks/useElementWidth";
+import useElement from "../../hooks/useElement";
 import { AiOutlineSend } from "react-icons/ai";
 
 const Portfolio = () => {
-  const { elementWidth, elementRef } = useElementWidth();
+  const { elementWidth, positionLeft, elementRef } = useElement();
+  const totalWidth = Number(elementWidth * (portfolio.length - 1));
+  const [active, setActive] = useState(0);
 
   const scroll = (direction: string) => {
     const { current } = elementRef;
@@ -17,13 +20,27 @@ const Portfolio = () => {
     }
   };
 
+  const scrollCircle = (index: number) => {
+    const { current } = elementRef;
+    if (current) {
+      current.scrollLeft = index * elementWidth;
+    }
+  };
+
+  useEffect(() => {
+    const index = Math.round(
+      Number(totalWidth - Math.floor(positionLeft)) / elementWidth
+    );
+    setActive(index);
+  }, [positionLeft, totalWidth, elementWidth]);
+
   return (
-    <Box id="portfolio" mb={"100px"}>
+    <Box id="portfolio" mb={"70px"} className="cc-container page-alignment">
       <Headers title="Portfolio" subTitle="Some of my works" />
-      <Flex justify={"space-between"} align={"center"}>
+      <Flex justify={"space-between"} align={"center"} mb={"40px"}>
         <Icon
           className="text-blue cursor"
-          boxSize={{ base: "25px", md: "40px" }}
+          boxSize={{ base: "25px", md: "50px" }}
           as={AiOutlineLeft}
           onClick={() => scroll("left")}
         />
@@ -54,7 +71,12 @@ const Portfolio = () => {
                 />
               </Box>
               <Box width={{ base: "100%", md: "45%" }}>
-                <h4 style={{marginBottom:"10px"}} className="text-white medium-text fw-bold">{each.name}</h4>
+                <h4
+                  style={{ marginBottom: "10px" }}
+                  className="text-white medium-text fw-bold"
+                >
+                  {each.name}
+                </h4>
                 <p className="text-fade-white">{each.about}</p>
                 <a
                   href={each.demoLink}
@@ -88,6 +110,22 @@ const Portfolio = () => {
           as={AiOutlineRight}
           onClick={() => scroll("right")}
         />
+      </Flex>
+      <Flex justify={"center"}>
+        <Flex gap={"20px"}>
+          {portfolio.map((each, index) => (
+            <Box
+              key={each.id}
+              width={"10px"}
+              h={"10px"}
+              borderRadius={"50%"}
+              className={`${
+                active === each.id ? "bg-blue" : "bg-white"
+              } cursor`}
+              onClick={() => scrollCircle(index)}
+            />
+          ))}
+        </Flex>
       </Flex>
     </Box>
   );

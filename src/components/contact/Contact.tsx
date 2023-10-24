@@ -50,7 +50,7 @@ const Contact = () => {
   };
 
   return (
-    <Box id="contact" mb={"100px"}>
+    <Box id="contact" mb={"100px"} className="cc-container page-alignment">
       <Headers
         title="Send me a message"
         subTitle="Got a question or proposal, or just want to say hello? Go ahead."

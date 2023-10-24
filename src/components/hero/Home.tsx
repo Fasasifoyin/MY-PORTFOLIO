@@ -1,13 +1,13 @@
 import { Box, Flex, Icon, Image } from "@chakra-ui/react";
 import { socials } from "../../utils/data";
-import useElementWidth from "../../hooks/useElementWidth";
+import useElement from "../../hooks/useElement";
 import Intro from "./Intro";
 
 const Home = () => {
-  const { elementRef, elementWidth } = useElementWidth();
+  const { elementRef, elementWidth } = useElement();
 
   return (
-    <Box id="/" mb={"100px"} className="text-white" pt={{ md: "100px" }}>
+    <Box id="/" mb={"100px"} pt={{ md: "100px" }} className="cc-container page-alignment text-white">
       <Flex gap={{ base: "40px", md: "100px" }} mb={{ base: "30px", md: 0 }}>
         <Flex direction={"column"} gap={"35px"}>
           {socials.map((each) => (
